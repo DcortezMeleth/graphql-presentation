@@ -1,0 +1,31 @@
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+type Query {
+   allBeers: [Beer]
+}
+
+type Mutation {
+   addBeer(name: String!): Beer
+}
+
+type Beer {
+   name: String!
+   brand: Brand!
+   volume: Int!
+   abv: Float!
+   shelf: Shelf
+}
+
+type Brand {
+   name: String!
+   beers: [Beer]!
+}
+
+type Shelf {
+    nr: Int!
+    size: Int!
+    beers: [Beer]!
+}
