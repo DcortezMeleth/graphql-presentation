@@ -4,28 +4,28 @@ schema {
 }
 
 type Query {
-   allBeers: [Beer]
+    allBeers: [Beer]
+    allBreweries: [Brewery]
 }
 
 type Mutation {
-   addBeer(name: String!): Beer
+    addBeer(name: String!): Beer
+    addBrewery(name: String!): Brewery
 }
 
 type Beer {
-   name: String!
-   brand: Brand!
-   volume: Int!
-   abv: Float!
-   shelf: Shelf
+    name: String!
+    brewery: Brewery!
+    volume: Int!
+    abv: Float!
+    score: Float!
 }
 
-type Brand {
-   name: String!
-   beers: [Beer]!
-}
-
-type Shelf {
-    nr: Int!
-    size: Int!
+type Brewery {
+    name: String!
+    score: Float!
+    registered: LocalDate
     beers: [Beer]!
 }
+
+scalar LocalDate

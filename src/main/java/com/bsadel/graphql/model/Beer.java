@@ -25,11 +25,10 @@ public class Beer {
     @Column(name = "abv")
     private double abv;
 
-    @ManyToOne
-    @JoinColumn(name = "brd_id")
-    private Brand brand;
+    @Column(name = "score")
+    private Double score;
 
     @ManyToOne
-    @JoinColumn(name = "sh_id")
-    private Shelf shelf;
+    @JoinColumn(name = "brd_id")
+    private Brewery brewery;
 }
