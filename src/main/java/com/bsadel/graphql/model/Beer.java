@@ -26,7 +26,7 @@ public class Beer {
     private double abv;
 
     @Column(name = "score")
-    private Double score;
+    private double score;
 
     @ManyToOne
     @JoinColumn(name = "brd_id")

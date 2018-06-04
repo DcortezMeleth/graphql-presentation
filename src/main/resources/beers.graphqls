@@ -10,6 +10,7 @@ type Query {
 
 type Mutation {
     addBeer(name: String!, breweryName: String!): Beer
+    addBeer2(beer: BeerInput!): Beer
     addBrewery(name: String!): Brewery
 }
 
@@ -19,6 +20,13 @@ type Beer {
     volume: Int!
     abv: Float!
     score: Float!
+}
+
+input BeerInput {
+    name: String!
+    brewery: String!
+    volume: Int!
+    abv: Float!
 }
 
 type Brewery {

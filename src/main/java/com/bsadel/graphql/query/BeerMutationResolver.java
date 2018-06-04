@@ -1,5 +1,6 @@
 package com.bsadel.graphql.query;
 
+import com.bsadel.graphql.input.BeerInput;
 import com.bsadel.graphql.model.Beer;
 import com.bsadel.graphql.model.Brewery;
 import com.bsadel.graphql.repositories.BeerRepository;
@@ -22,6 +23,16 @@ public class BeerMutationResolver implements GraphQLMutationResolver {
         Brewery brewery = breweryRepository.findByName(breweryName);
         Beer beer = new Beer();
         beer.setName(name);
+        beer.setBrewery(brewery);
+        return beerRepository.save(beer);
+    }
+
+    public Beer addBeer2(BeerInput input) {
+        Beer beer = new Beer();
+        beer.setName(input.getName());
+        beer.setAbv(input.getAbv());
+        beer.setVolume(input.getVolume());
+        Brewery brewery = breweryRepository.findByName(input.getBrewery());
         beer.setBrewery(brewery);
         return beerRepository.save(beer);
     }
