@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface BreweryRepository extends JpaRepository<Brewery, Long> {
 
+    public Brewery findByName(String name);
 }

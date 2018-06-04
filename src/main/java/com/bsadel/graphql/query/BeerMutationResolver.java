@@ -6,7 +6,6 @@ import com.bsadel.graphql.repositories.BeerRepository;
 import com.bsadel.graphql.repositories.BreweryRepository;
 import com.coxautodev.graphql.tools.GraphQLMutationResolver;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
@@ -19,9 +18,11 @@ public class BeerMutationResolver implements GraphQLMutationResolver {
 
     private final BreweryRepository breweryRepository;
 
-    public Beer addBeer(String name) {
+    public Beer addBeer(String name, String breweryName) {
+        Brewery brewery = breweryRepository.findByName(breweryName);
         Beer beer = new Beer();
         beer.setName(name);
+        beer.setBrewery(brewery);
         return beerRepository.save(beer);
     }
 

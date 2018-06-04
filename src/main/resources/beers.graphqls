@@ -9,7 +9,7 @@ type Query {
 }
 
 type Mutation {
-    addBeer(name: String!): Beer
+    addBeer(name: String!, breweryName: String!): Beer
     addBrewery(name: String!): Brewery
 }
 
@@ -25,7 +25,7 @@ type Brewery {
     name: String!
     score: Float!
     registered: LocalDate
-    beers: [Beer]!
+    beers: [Beer]
 }
 
 scalar LocalDate

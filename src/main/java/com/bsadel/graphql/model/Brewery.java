@@ -20,7 +20,7 @@ public class Brewery {
     @Version
     private long version;
 
-    @Column(name = "name")
+    @Column(name = "name", unique = true)
     private String name;
 
     @Column(name = "registered")
